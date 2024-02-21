@@ -24,8 +24,8 @@ jobs:
           cd 20-058/core/standard
           ls 
           metanorma compile --agree-to-terms -t ogc -x xml,html,pdf 20-058.adoc
-          cp ./20-058.html ../../20-058.html
-          cp ./20-058.pdf ../../20-058.pdf
-          cd ../../
+          cp ./20-058.html ../../../main/20-058.html
+          cp ./20-058.pdf ../../../main/20-058.pdf
+          cd ../../../main
           pwd
           ls
