@@ -23,8 +23,8 @@ jobs:
           cd 20-058/core/standard
           ls 
           metanorma compile --agree-to-terms -t ogc -x xml,html,pdf 20-058.adoc
-          cp ./20-058.html ../../main/20-058.html
-          cp ./20-058.pdf ../../main/20-058.pdf
+          cp ./20-058.html ../../20-058.html
+          cp ./20-058.pdf ../../20-058.pdf
           cd ../../main
           git config --global user.name 'opengeospatial'
           git config --global user.email 'opengeospatial@users.noreply.github.com'
