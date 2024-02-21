@@ -19,12 +19,12 @@ jobs:
           path: 20-058
       - name: Generate document
         run: |
-          cd 20-058
-          ls ./core/standard
-          metanorma compile --agree-to-terms -t ogc -x xml,html,pdf ./core/standard/20-058.adoc
-          cp ./core/standard/20-058.html ../main/20-058.html
-          cp ./core/standard/20-058.pdf ../main/20-058.pdf
-          cd ../main
+          cd 20-058/core/standard
+          ls 
+          metanorma compile --agree-to-terms -t ogc -x xml,html,pdf 20-058.adoc
+          cp ./20-058.html ../../main/20-058.html
+          cp ./20-058.pdf ../../main/20-058.pdf
+          cd ../../main
           git config --global user.name 'opengeospatial'
           git config --global user.email 'opengeospatial@users.noreply.github.com'
           git add 20-058.html 20-058.pdf
