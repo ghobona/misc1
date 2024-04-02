@@ -1,4 +1,4 @@
-name: generate_20-058
+name: generate_18-067
 on:
   issues:
     types: opened
@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: metanorma/metanorma:latest
+    container: metanorma/metanorma:1.6.4
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -15,22 +15,17 @@ jobs:
       - name: checkout other repo
         uses: actions/checkout@v3 # checkout the repository content to github runner
         with:
-          repository: opengeospatial/ogcapi-maps
-          ref: metanorma
-          path: 20-058
+          repository: opengeospatial/styles-and-symbology
+          path: 18-067
       - name: Generate document
-        run: |          
-          pwd
-          cd 20-058/core/standard
-          ls 
-          metanorma compile --agree-to-terms -t ogc -x xml,html,pdf 20-058.adoc
-          cp ./20-058.html ../../../main/20-058.html
-          cp ./20-058.pdf ../../../main/20-058.pdf
-          cd ../../../main
-          pwd
-          ls
+        run: |
+          cd 18-067/core
+          metanorma compile --agree-to-terms -t ogc -x xml,html,pdf 18-067r4.adoc
+          cp 18-067r4.html ../../main/18-067r4.html
+          cp 18-067r4.pdf ../../main/18-067r4.pdf
+          cd ../../main
           git config --global user.name 'opengeospatial'
           git config --global user.email 'opengeospatial@users.noreply.github.com'
-          git add 20-058.html 20-058.pdf
-          git commit -am "Automated generation of HTML and PDF documents"
+          git add 18-067r4.html 18-067r4.pdf
+          git commit -am "Automated generation of documents"
           git push
