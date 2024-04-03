@@ -20,7 +20,7 @@ jobs:
       - name: Generate document
         run: |
           cd 18-067/core
-          metanorma compile -t ogc -x xml,html 18-067r4.adoc
+          metanorma compile --continue-without-fonts -t ogc -x xml,html 18-067r4.adoc
           cp 18-067r4.html ../../main/18-067r4.html
           cd ../../main
           git config --global user.name 'opengeospatial'
