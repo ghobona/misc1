@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: metanorma/metanorma:1.7.1
+    container: metanorma/metanorma:latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
       - name: Generate document
         run: |
           cd 18-067/core
-          metanorma compile --continue-without-fonts -t ogc -x xml,html 18-067r4.adoc
+          metanorma compile --agree-to-terms -t ogc -x xml,html 18-067r4.adoc
           cp 18-067r4.html ../../main/18-067r4.html
           cd ../../main
           git config --global user.name 'opengeospatial'
